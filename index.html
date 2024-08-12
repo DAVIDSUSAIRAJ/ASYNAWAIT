@@ -1,0 +1,25 @@
+const validations = async () => {
+
+	// WE SHUOULD STOP THE COMPILER, HOW DO WE DO THAT? 
+	// THE ALL AWAIT SHOULD BE  RELATED WITH ASYNC FUNCTION,
+	//WITHIN ASYNC FUNCTION WE CANNOT USE THE  FOREACH LOOP, INSTTEAD OF WE SHUOULD USE THE FOR LOOP
+
+
+    for (const stowNo in OBstows) {
+      const cargoList = _.getOnBoardCargo(stowNo, objPath, state.cargo.cargodetails.onBoard);
+
+	  //HERE, WE SHOULD NOT USE THE FOR EACH LOOP, WE SHOULD USE THE FOR LOOP, THE REASON IS THAT THE FOR EACH LOOP IS NOT WORKING PROPERYLY,INSTEAD WE SHOULD USE THE FOR LOOP
+	  //NOTE:"DONT DO THIS"
+      cargoList.forEach(cargo => {
+        const stowCargo = { cargo, stowNo ,selectionInfo: {polIdx: cargo.ipolIdx , podIdx: cargo.ipodIdx}}
+        runValidations(stowCargo, state, {}, {}, validlist)
+      })
+    }
+
+	  //NOTE:" DO THIS"
+	  //HERE, WE SHOULD USE THE FOR LOOP, THE REASON IS THAT THE FOR EACH LOOP IS NOT WORKING PROPERYLY,INSTEAD WE SHOULD USE THE FOR LOOP
+	for (let cargoIndex = 0; cargoIndex < cargoList.length; cargoIndex++) {
+        if (shouldStop.current) break; // Check if we should stop the loop
+        const stowCargo = { cargo, stowNo, selectionInfo: { polIdx: cargo.ipolIdx, podIdx: cargo.ipodIdx } }}
+        }
+	}
